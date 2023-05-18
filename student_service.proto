@@ -1,0 +1,18 @@
+syntax="proto3";
+package idl;
+option go_package="./idl/my_proto;student_service"
+
+message Student {
+    string Name = 1;
+    int32 age = 5;
+    bool Gender = 4;
+    float Height = 7;
+    repeated string Locations = 8;
+    map<string,float>scores=6;
+}
+message Request {
+    string StudentId = 1;
+}
+service StudentService{
+   rpc GetStudentInfo (Request) returns (Student);
+}
